@@ -29,7 +29,7 @@ public class TestStore extends Store {
     @Test(priority = 1, description = "Create Account")
     public void createAccount() throws InterruptedException {
         Authentication authentication = new Authentication(driver);
-        authentication.doCreateAccount("yabisikerr@euroweb.email");
+        authentication.doCreateAccount("yacisikerr@euroweb.email");
     }
 
     @Test(priority = 2, description = "Register your personal information")
@@ -47,7 +47,7 @@ public class TestStore extends Store {
     @Test(priority = 4, description = "Login account")
     public void loginAccount() {
         Authentication authentication = new Authentication(driver);
-        authentication.doLogin("yabisikerr@euroweb.email", "admin123");
+        authentication.doLogin("yacisikerr@euroweb.email", "admin123");
     }
 
     @Test(priority = 5, description = "Verify order history")

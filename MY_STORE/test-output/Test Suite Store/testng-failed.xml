@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Test Suite Store]">
+  <test thread-count="5" name="CaseTest(failed)">
+    <classes>
+      <class name="com.store.test.TestStore">
+        <methods>
+          <include name="selectProduct"/>
+          <include name="signOutAccount"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="registerPerson"/>
+          <include name="verifyOrderHistory"/>
+          <include name="addToCar"/>
+          <include name="loginAccount"/>
+        </methods>
+      </class> <!-- com.store.test.TestStore -->
+    </classes>
+  </test> <!-- CaseTest(failed) -->
+</suite> <!-- Failed suite [Test Suite Store] -->

@@ -15,15 +15,19 @@ import org.openqa.selenium.support.PageFactory;
  * @author Jhoan Lopez - lopezrjhoan@gmail.com
  */
 public class Index {
+
+    private WebDriver driver;
     
-    @FindBy(linkText="Sign in")
+    @FindBy(linkText = "Sign in")
     private WebElement signIn;
-    
-    public Index(WebDriver driver){
-        PageFactory.initElements(driver, this);
+
+    public Index(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
-    
-    public void doSignIn(){
-        signIn.click();        
+
+    public void doSignIn() {
+        Utility.captureScreenShot(driver, this.getClass());
+        signIn.click();
     }
 }

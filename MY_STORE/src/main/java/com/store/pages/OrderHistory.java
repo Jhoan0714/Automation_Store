@@ -18,6 +18,8 @@ import org.testng.Assert;
  */
 public class OrderHistory {
 
+    private WebDriver driver;
+
     @FindBy(id = "block-history")
     private WebElement blockHistory;
 
@@ -28,11 +30,14 @@ public class OrderHistory {
     private WebElement backHome;
 
     public OrderHistory(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
+
     }
 
     public void doVerifyOrderHistory(String text) {
         Assert.assertEquals(blockHistory.getText().trim().toUpperCase(), text.trim().toUpperCase());
+        Utility.captureScreenShot(driver, this.getClass());
         backHome.click();
     }
 }

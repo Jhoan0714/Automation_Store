@@ -16,6 +16,8 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class Account {
 
+    private WebDriver driver;
+
     @FindBy(linkText = "Sign out")
     private WebElement signOut;
 
@@ -23,14 +25,17 @@ public class Account {
     private WebElement orderHistory;
 
     public Account(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
 
     public void doSignOut() {
+        Utility.captureScreenShot(driver,this.getClass());
         signOut.click();
     }
 
     public void doOrderHistory() {
+        Utility.captureScreenShot(driver,this.getClass());
         orderHistory.click();
     }
 }

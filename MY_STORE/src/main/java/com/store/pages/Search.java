@@ -16,6 +16,8 @@ import org.openqa.selenium.support.PageFactory;
  * @author Jhoan Lopez - lopezrjhoan@gmail.com
  */
 public class Search {
+    
+    private WebDriver driver;
 
     @FindBy(id = "search_query_top")
     private WebElement searchText;
@@ -27,12 +29,14 @@ public class Search {
     private WebElement productContainer;
     
     public Search(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
     
     public void doSearch(String text){
         searchText.sendKeys(text);
         searchButton.click();
+        Utility.captureScreenShot(driver, this.getClass());
         productContainer.findElement(By.xpath("//img[@alt='"+text+"']")).click();
     }
     

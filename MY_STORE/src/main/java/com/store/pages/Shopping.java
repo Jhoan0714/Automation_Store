@@ -15,23 +15,27 @@ import org.openqa.selenium.support.PageFactory;
  * @author Jhoan Lopez - lopezrjhoan@gmail.com
  */
 public class Shopping {
+    
+    private WebDriver driver;
 
     @FindBy(className = "icon-plus")
     private WebElement increaseQuantity;
 
     @FindBy(xpath = "//*[@id=\"add_to_cart\"]/button")
     private WebElement addButtonCar;
-    
+
     @FindBy(linkText = "Sign out")
     private WebElement signOut;
 
     public Shopping(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
-    
-    public void doAddToCar(){
+
+    public void doAddToCar() {
         increaseQuantity.click();
         addButtonCar.click();
+        Utility.captureScreenShot(driver, this.getClass());
         signOut.click();
     }
 }

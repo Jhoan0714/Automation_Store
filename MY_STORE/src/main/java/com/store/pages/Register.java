@@ -19,6 +19,8 @@ import org.openqa.selenium.support.ui.Select;
  */
 public class Register {
 
+    private WebDriver driver;
+
     @FindBy(id = "id_gender1")
     private WebElement genderMr;
 
@@ -71,8 +73,9 @@ public class Register {
     private WebElement registerButton;
 
     public Register(WebDriver driver) {
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        PageFactory.initElements(this.driver, this);
     }
 
     public void doRegister(String myGender, String myFirstname, String myLastname, String myPassword, String myDay, String myMonth, String myYear, String myAddress, String myCity, String myState, String myPostCode, String myCountry, String myPhoneMobile, String myAliasAddress) {
@@ -96,6 +99,7 @@ public class Register {
         phoneMobile.sendKeys(myPhoneMobile);
         aliasAddress.clear();
         aliasAddress.sendKeys(myAliasAddress);
+        Utility.captureScreenShot(driver, this.getClass());
         registerButton.click();
     }
 

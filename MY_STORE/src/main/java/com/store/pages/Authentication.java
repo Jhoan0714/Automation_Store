@@ -16,6 +16,8 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class Authentication {
 
+    private WebDriver driver;
+
     @FindBy(id = "email_create")
     private WebElement createAccountEmail;
 
@@ -32,17 +34,20 @@ public class Authentication {
     private WebElement loginButton;
 
     public Authentication(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
     }
 
     public void doCreateAccount(String new_email) {
         createAccountEmail.sendKeys(new_email);
+        Utility.captureScreenShot(driver,this.getClass());
         createAccountButton.click();
     }
 
     public void doLogin(String email, String password) {
         loginEmail.sendKeys(email);
         loginPassword.sendKeys(password);
+        Utility.captureScreenShot(driver,this.getClass());
         loginButton.click();
     }
 }
