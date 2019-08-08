@@ -27,9 +27,8 @@ public class Store {
         driver.manage().window().maximize();
     }
 
-    /*@AfterClass
+    @AfterClass
     public void tearDown() {
         driver.quit();
     }
-     */
 }

@@ -14,23 +14,24 @@ import org.openqa.selenium.support.PageFactory;
  *
  * @author Jhoan Lopez - lopezrjhoan@gmail.com
  */
-public class Account {
+public class Shopping {
 
+    @FindBy(className = "icon-plus")
+    private WebElement increaseQuantity;
+
+    @FindBy(xpath = "//*[@id=\"add_to_cart\"]/button")
+    private WebElement addButtonCar;
+    
     @FindBy(linkText = "Sign out")
     private WebElement signOut;
 
-    @FindBy(xpath = "//*[@id=\"center_column\"]/div/div[1]/ul/li[1]/a/span")
-    private WebElement orderHistory;
-
-    public Account(WebDriver driver) {
+    public Shopping(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
-
-    public void doSignOut() {
+    
+    public void doAddToCar(){
+        increaseQuantity.click();
+        addButtonCar.click();
         signOut.click();
-    }
-
-    public void doOrderHistory() {
-        orderHistory.click();
     }
 }

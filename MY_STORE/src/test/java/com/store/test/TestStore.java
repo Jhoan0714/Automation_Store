@@ -8,7 +8,10 @@ package com.store.test;
 import com.store.pages.Account;
 import com.store.pages.Authentication;
 import com.store.pages.Index;
+import com.store.pages.OrderHistory;
 import com.store.pages.Register;
+import com.store.pages.Search;
+import com.store.pages.Shopping;
 import org.testng.annotations.Test;
 
 /**
@@ -26,7 +29,7 @@ public class TestStore extends Store {
     @Test(priority = 1, description = "Create Account")
     public void createAccount() throws InterruptedException {
         Authentication authentication = new Authentication(driver);
-        authentication.doCreateAccount("duyaapagaa@simplebox.email");
+        authentication.doCreateAccount("yabisiker@euroweb.email");
         Thread.sleep(5000);
     }
 
@@ -43,9 +46,29 @@ public class TestStore extends Store {
     }
 
     @Test(priority = 4, description = "Login account")
-    public void LoginAccount() {
+    public void loginAccount() {
         Authentication authentication = new Authentication(driver);
-        authentication.doLogin("duyaapagaa@simplebox.email", "admin123");
+        authentication.doLogin("yabisiker@euroweb.email", "admin123");
+    }
+
+    @Test(priority = 5, description = "Verify order history")
+    public void verifyOrderHistory() {
+        Account account = new Account(driver);
+        account.doOrderHistory();
+        OrderHistory order = new OrderHistory(driver);
+        order.doVerifyOrderHistory("You have not placed any orders.");
+    }
+
+    @Test(priority = 6, description = "Select product")
+    public void selectProduct() {
+        Search search = new Search(driver);
+        search.doSearch("Blouse");
+    }
+
+    @Test(priority = 7, description = "Add to Car")
+    public void addToCar() {
+        Shopping shopping = new Shopping(driver);
+        shopping.doAddToCar();
     }
 
 }

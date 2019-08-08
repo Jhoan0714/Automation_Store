@@ -17,13 +17,13 @@ import org.openqa.selenium.support.PageFactory;
 public class Index {
     
     @FindBy(linkText="Sign in")
-    private WebElement sign_in;
+    private WebElement signIn;
     
     public Index(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
     
     public void doSignIn(){
-        sign_in.click();        
+        signIn.click();        
     }
 }

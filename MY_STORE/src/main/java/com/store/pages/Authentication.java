@@ -17,32 +17,32 @@ import org.openqa.selenium.support.PageFactory;
 public class Authentication {
 
     @FindBy(id = "email_create")
-    private WebElement create_account_email;
+    private WebElement createAccountEmail;
 
     @FindBy(id = "SubmitCreate")
-    private WebElement create_account_button;
+    private WebElement createAccountButton;
 
     @FindBy(id = "email")
-    private WebElement login_email;
+    private WebElement loginEmail;
 
     @FindBy(id = "passwd")
-    private WebElement login_password;
+    private WebElement loginPassword;
 
     @FindBy(id = "SubmitLogin")
-    private WebElement login_button;
+    private WebElement loginButton;
 
     public Authentication(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
     public void doCreateAccount(String new_email) {
-        create_account_email.sendKeys(new_email);
-        create_account_button.click();
+        createAccountEmail.sendKeys(new_email);
+        createAccountButton.click();
     }
 
     public void doLogin(String email, String password) {
-        login_email.sendKeys(email);
-        login_password.sendKeys(password);
-        login_button.click();
+        loginEmail.sendKeys(email);
+        loginPassword.sendKeys(password);
+        loginButton.click();
     }
 }

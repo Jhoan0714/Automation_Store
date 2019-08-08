@@ -19,10 +19,10 @@ import org.openqa.selenium.support.ui.Select;
 public class Register {
 
     @FindBy(id = "id_gender1")
-    private WebElement gender_Mr;
+    private WebElement genderMr;
 
     @FindBy(id = "id_gender2")
-    private WebElement gender_Mrs;
+    private WebElement genderMrs;
 
     @FindBy(id = "customer_firstname")
     private WebElement firstname;
@@ -34,16 +34,16 @@ public class Register {
     private WebElement password;
 
     @FindBy(id = "days")
-    private WebElement birth_day;
+    private WebElement birthDay;
 
     @FindBy(id = "months")
-    private WebElement birth_month;
+    private WebElement birthMonth;
 
     @FindBy(id = "years")
-    private WebElement birth_year;
+    private WebElement birthYear;
 
     @FindBy(how = How.ID_OR_NAME, using = "newsletter")
-    private WebElement subscription_newsletter;
+    private WebElement subscriptionNewsletter;
 
     @FindBy(id = "address1")
     private WebElement address;
@@ -55,46 +55,46 @@ public class Register {
     private WebElement state;
 
     @FindBy(id = "postcode")
-    private WebElement postcode;
+    private WebElement postCode;
 
     @FindBy(id = "id_country")
     private WebElement country;
 
     @FindBy(id = "phone_mobile")
-    private WebElement phone_mobile;
+    private WebElement phoneMobile;
 
     @FindBy(id = "alias")
-    private WebElement alias_address;
+    private WebElement aliasAddress;
 
     @FindBy(id = "submitAccount")
-    private WebElement register_button;
+    private WebElement registerButton;
 
     public Register(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void doRegister(String my_gender, String my_firstname, String my_lastname, String my_password, String my_day, String my_month, String my_year, String my_address, String my_city, String my_state, String my_post_code, String my_country, String my_phone_mobile, String my_alias_address) {
-        if (my_gender.toUpperCase().equals("MR")) {
-            gender_Mr.click();
+    public void doRegister(String myGender, String myFirstname, String myLastname, String myPassword, String myDay, String myMonth, String myYear, String myAddress, String myCity, String myState, String myPostCode, String myCountry, String myPhoneMobile, String myAliasAddress) {
+        if (myGender.toUpperCase().equals("MR")) {
+            genderMr.click();
         } else {
-            gender_Mrs.click();
+            genderMrs.click();
         }
-        firstname.sendKeys(my_firstname);
-        lastname.sendKeys(my_lastname);
-        password.sendKeys(my_password);
-        textToSelect(birth_day, my_day);
-        textToSelect(birth_month, my_month);
-        textToSelect(birth_year, my_year);
-        subscription_newsletter.click();
-        address.sendKeys(my_address);
-        city.sendKeys(my_city);
-        textToSelect(state, my_state + "");
-        postcode.sendKeys(my_post_code);
-        textToSelect(country, my_country + "");
-        phone_mobile.sendKeys(my_phone_mobile);
-        alias_address.sendKeys(my_alias_address);
-        register_button.clear();
-        register_button.click();
+        firstname.sendKeys(myFirstname);
+        lastname.sendKeys(myLastname);
+        password.sendKeys(myPassword);
+        textToSelect(birthDay, myDay);
+        textToSelect(birthMonth, myMonth);
+        textToSelect(birthYear, myYear);
+        subscriptionNewsletter.click();
+        address.sendKeys(myAddress);
+        city.sendKeys(myCity);
+        textToSelect(state, myState);
+        postCode.sendKeys(myPostCode);
+        textToSelect(country, myCountry);
+        phoneMobile.sendKeys(myPhoneMobile);
+        aliasAddress.clear();
+        aliasAddress.sendKeys(myAliasAddress);
+        registerButton.click();
     }
 
     private void textToSelect(WebElement element, String text) {
