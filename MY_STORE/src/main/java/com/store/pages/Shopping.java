@@ -36,6 +36,5 @@ public class Shopping {
         increaseQuantity.click();
         addButtonCar.click();
         Utility.captureScreenShot(driver, this.getClass());
-        signOut.click();
     }
 }
