@@ -5,6 +5,7 @@
  */
 package com.store.pages;
 
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -70,6 +71,7 @@ public class Register {
     private WebElement registerButton;
 
     public Register(WebDriver driver) {
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         PageFactory.initElements(driver, this);
     }
 
