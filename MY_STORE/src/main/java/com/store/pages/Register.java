@@ -69,11 +69,11 @@ public class Register {
     @FindBy(id = "submitAccount")
     private WebElement register_button;
 
-    public void Register(WebDriver driver) {
+    public Register(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void doRegister(String my_gender, String my_firstname, String my_lastname, String my_password, int my_day, int my_month, int my_year, String my_address, String my_city, String my_state, String my_post_code, String my_country, String my_phone_mobile, String my_alias_address) {
+    public void doRegister(String my_gender, String my_firstname, String my_lastname, String my_password, String my_day, String my_month, String my_year, String my_address, String my_city, String my_state, String my_post_code, String my_country, String my_phone_mobile, String my_alias_address) {
         if (my_gender.toUpperCase().equals("MR")) {
             gender_Mr.click();
         } else {
@@ -82,9 +82,9 @@ public class Register {
         firstname.sendKeys(my_firstname);
         lastname.sendKeys(my_lastname);
         password.sendKeys(my_password);
-        textToSelect(birth_day, my_day + "");
-        textToSelect(birth_month, my_month + "");
-        textToSelect(birth_year, my_year + "");
+        textToSelect(birth_day, my_day);
+        textToSelect(birth_month, my_month);
+        textToSelect(birth_year, my_year);
         subscription_newsletter.click();
         address.sendKeys(my_address);
         city.sendKeys(my_city);
@@ -93,6 +93,7 @@ public class Register {
         textToSelect(country, my_country + "");
         phone_mobile.sendKeys(my_phone_mobile);
         alias_address.sendKeys(my_alias_address);
+        register_button.clear();
         register_button.click();
     }
 
